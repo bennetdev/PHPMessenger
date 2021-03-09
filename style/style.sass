@@ -1,0 +1,371 @@
+$light: white
+$blue_main: #7C81F6
+$blue_sec: #2B4D6A
+$blue_third: #2c475d
+$light_blue: #F3F7FF
+$light_grey: #C2C2C2
+$grey : #6c6c6c
+$green: #10ce91
+$green_sec: #5dd4ae
+$green_third: #68c1a5
+$light_grey_30: rgba(194,194,194, 0.3)
+
+$border: 1px solid $light_grey_30
+$hover_background_animation: background-color .5s ease
+
+
+body
+  font-family: "Roboto", sans-serif
+  height: 100vh
+  overflow: hidden
+  margin: 0
+
+.center
+  display: flex
+  justify-content: center
+
+.container
+  height: 100%
+  display: flex
+  position: relative
+.chat_wrapper
+  width: 75%
+  position: relative
+  .bottombar
+    background-color: $light
+    display: flex
+    justify-content: center
+    align-items: center
+#file
+  display: none
+#upload
+  cursor: pointer
+
+.chat_interface
+  background-color: $light_blue
+  width: 100%
+  height: 100%
+  position: relative
+  .topbar
+    background-color: $light
+    display: flex
+    align-items: center
+    color: $grey
+
+#message_input
+  height: 40px
+  width: 70%
+
+#add_input
+  width: 100%
+  height: 30px
+  border-radius: 0
+  bottom: 80px
+  padding: 0
+  position: absolute
+.send_option
+  margin: 0 16px 0 16px
+  font-size: 36px
+  color: $grey
+  cursor: pointer
+#online_status
+  height: 12px
+  width: 12px
+  border-radius: 50%
+  margin-left: 8px
+  &.online
+    background-color: $green
+  &.offline
+    background-color: $light_grey
+#writing_status
+  margin-left: 16px
+  visibility: hidden
+.name_title
+  margin: 0 0 0 8px
+  font-weight: 500
+.chats_sidebar
+  background-color: $light
+  height: 100%
+  width: 25%
+  min-width: 15%
+  position: relative
+  border-right: $border
+  .topbar, .bottombar
+    color: $light
+    background-color: $blue_main
+    display: flex
+    align-items: center
+  .bottombar
+    display: flex
+    justify-content: space-around
+    color: $light
+    align-items: center
+    width: 100%
+    .material-icons
+      font-size: 36px
+      cursor: pointer
+.chats
+  overflow-y: auto
+  overflow-x: hidden
+  padding: 0 0 80px 0
+  max-height: 100%
+  hr
+    border: $border
+    margin: 0 8px 0 8px
+  .chat
+    height: 100px
+    cursor: pointer
+    display: flex
+    align-items: center
+    transition: $hover_background_animation
+    .profile
+      margin-left: 8px
+    .notifications
+      margin: 0 auto 0 auto
+      background-color: $blue_main
+      border-radius: 50%
+      width: 24px
+      height: 24px
+      color: $light
+      display: flex
+      align-items: center
+      justify-content: center
+      visibility: hidden
+      position: absolute
+      right: 15px
+      top: calc(50% - 12px)
+    &:hover
+      background-color: $light_grey_30
+.message
+  color: $light
+  clear: both
+  margin: 0 12px 0 12px
+  .sent
+    float: right
+    background-color: $green_sec
+    .text_file
+      background-color: $green_third
+  .received
+    float: left
+    background-color: $blue_sec
+    .text_file
+      background-color: $blue_third
+.image
+  object-fit: cover
+  height: 200px
+  width: 200px
+  border-radius: 6px
+.text_file
+  height: 50px
+  width: 200px
+  cursor: pointer
+  border-radius: 6px
+  justify-content: center
+  display: flex
+  align-items: center
+  a
+    color: $light
+    text-decoration: none
+.chat_messages
+  max-height: calc(100% - 140px)
+  overflow-y: auto
+  overflow-x: hidden
+.message_content
+  padding: 8px 8px 8px 8px
+  margin: 8px 8px 8px 8px
+  border-radius: 8px
+  max-width: 90%
+  overflow: hidden
+  overflow-wrap: anywhere
+.message_text
+  margin: 0
+.profile
+  font-size: 48px
+  color: $grey
+.chat_details
+  width: 100%
+  margin: 0 0 0 8px
+  position: relative
+.chat_title
+  margin: 0
+  font-weight: 400
+  color: $grey
+.last_message
+  margin: 0
+  color: $light_grey
+  max-width: 50%
+  overflow: hidden
+.topbar
+  height: 60px
+  border-bottom: $border
+.bottombar
+  height: 80px
+  position: absolute
+  bottom: 0
+  left: 0
+  width: 100%
+  border-top: $border
+.text_field
+  border-radius: 50px
+  outline: none
+  border: 1px solid rgba(194,194,194, 0.6)
+  text-indent: 15px
+  color: $grey
+  &::placeholder
+    color: $light_grey
+    font-family: "Roboto", sans-serif
+
+#menu
+  display: none
+  margin-left: 8px
+
+.login_page
+  background-color: $blue_sec
+  height: 100vh
+  overflow: hidden
+  width: 100%
+  margin: 0
+  .center
+    height: 100%
+    align-items: center
+  .login
+    width: 1200px
+    height: 700px
+    background-color: $light
+    border-radius: 20px
+    display: flex
+    text-align: center
+    overflow: hidden
+    .switch_login
+      background-color: $blue_main
+      width: 410px
+      color: $light
+      border-radius: 20px 0 0 20px
+      padding: 168px 0 0 0
+      position: relative
+      transition: width 1s ease
+      z-index: 1
+      order: 0
+      .watch
+        margin-top: 36px
+        width: 187px
+        margin-left: auto
+        margin-right: auto
+        color: $light
+        .change_time
+          &:hover
+            color: $blue_sec
+    .switch_button
+      color: $light
+      border-radius: 50px
+      height: 45px
+      width: 150px
+      background-color: transparent
+      border: 1px solid $light
+      font-size: 12px
+      position: absolute
+      bottom: 168px
+      left: calc(50% - 75px)
+      cursor: pointer
+      transition: color, background-color 0.5s ease
+      &:hover
+        color: $blue_main
+        background-color: $light
+    #switch_sign_up_mobile
+      color: $blue_main
+      border: 1px solid $blue_main
+      bottom: 60px
+      display: none
+      &:hover
+        color: $light
+        background-color: $blue_main
+    .credentials, .credentials_register
+      color: $blue_sec
+      width: 790px
+      padding: 72px 0 72px 0
+      position: relative
+      transition: width 1s ease
+      z-index: 0
+      h1
+        white-space: nowrap
+      .cred_form
+        position: absolute
+        left: calc(50% - 152px)
+        top: calc(50% - 80px)
+        .toggle_visible
+          position: absolute
+          right: 6px
+          color: $blue_sec
+          cursor: pointer
+        input
+          outline: none
+          border: none
+          border-bottom: 1px solid $grey
+          margin-bottom: 80px
+          width: 300px
+          color: $blue_sec
+          padding-bottom: 10px
+          font-size: 16px
+          &::placeholder
+            font-size: 16px
+            color: $grey
+            font-family: "Roboto", sans-serif
+      .submit_form
+        color: $light
+        height: 45px
+        width: 300px
+        background-color: $green_sec
+        border: none
+        border-radius: 50px
+        font-size: 12px
+        position: absolute
+        bottom: 72px
+        left: calc(50% - 150px)
+        box-shadow: 0 4px 7px lightgrey
+        cursor: pointer
+        transition: box-shadow 0.5s ease
+        &:hover
+          box-shadow: 0 7px 9px lightgrey
+    .credentials_register
+      visibility: hidden
+      width: 0
+
+button
+  outline: none
+  font-family: "Roboto", sans-serif
+.no_transition
+  transition: none !important
+
+// scrollbar
+::-webkit-scrollbar
+  width: 8px
+
+::-webkit-scrollbar-track
+  background: $light
+
+::-webkit-scrollbar-thumb
+  background: $light_grey
+  border-radius: 12px
+
+::-webkit-scrollbar-thumb:hover
+  background: $grey
+
+
+// views
+@media (max-width: 768px)
+  .closed
+    display: none
+  .open
+    display: block
+    width: 100%
+  #menu
+    display: block
+@media (max-width: 600px)
+  .switch_login
+    display: none
+  #submit_credentials, #submit_register
+    bottom: 120px
+  #switch_sign_up_mobile
+    display: block !important
+  #register-form
+    top: calc(50% - 110px)

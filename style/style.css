@@ -1,0 +1,462 @@
+body {
+  font-family: "Roboto", sans-serif;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  height: 100%;
+  display: flex;
+  position: relative;
+}
+
+.chat_wrapper {
+  width: 75%;
+  position: relative;
+}
+.chat_wrapper .bottombar {
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#file {
+  display: none;
+}
+
+#upload {
+  cursor: pointer;
+}
+
+.chat_interface {
+  background-color: #F3F7FF;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.chat_interface .topbar {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  color: #6c6c6c;
+}
+
+#message_input {
+  height: 40px;
+  width: 70%;
+}
+
+#add_input {
+  width: 100%;
+  height: 30px;
+  border-radius: 0;
+  bottom: 80px;
+  padding: 0;
+  position: absolute;
+}
+
+.send_option {
+  margin: 0 16px 0 16px;
+  font-size: 36px;
+  color: #6c6c6c;
+  cursor: pointer;
+}
+
+#online_status {
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  margin-left: 8px;
+}
+#online_status.online {
+  background-color: #10ce91;
+}
+#online_status.offline {
+  background-color: #C2C2C2;
+}
+
+#writing_status {
+  margin-left: 16px;
+  visibility: hidden;
+}
+
+.name_title {
+  margin: 0 0 0 8px;
+  font-weight: 500;
+}
+
+.chats_sidebar {
+  background-color: white;
+  height: 100%;
+  width: 25%;
+  min-width: 15%;
+  position: relative;
+  border-right: 1px solid rgba(194, 194, 194, 0.3);
+}
+.chats_sidebar .topbar, .chats_sidebar .bottombar {
+  color: white;
+  background-color: #7C81F6;
+  display: flex;
+  align-items: center;
+}
+.chats_sidebar .bottombar {
+  display: flex;
+  justify-content: space-around;
+  color: white;
+  align-items: center;
+  width: 100%;
+}
+.chats_sidebar .bottombar .material-icons {
+  font-size: 36px;
+  cursor: pointer;
+}
+
+.chats {
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 0 0 80px 0;
+  max-height: 100%;
+}
+.chats hr {
+  border: 1px solid rgba(194, 194, 194, 0.3);
+  margin: 0 8px 0 8px;
+}
+.chats .chat {
+  height: 100px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.5s ease;
+}
+.chats .chat .profile {
+  margin-left: 8px;
+}
+.chats .chat .notifications {
+  margin: 0 auto 0 auto;
+  background-color: #7C81F6;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+  position: absolute;
+  right: 15px;
+  top: calc(50% - 12px);
+}
+.chats .chat:hover {
+  background-color: rgba(194, 194, 194, 0.3);
+}
+
+.message {
+  color: white;
+  clear: both;
+  margin: 0 12px 0 12px;
+}
+.message .sent {
+  float: right;
+  background-color: #5dd4ae;
+}
+.message .sent .text_file {
+  background-color: #68c1a5;
+}
+.message .received {
+  float: left;
+  background-color: #2B4D6A;
+}
+.message .received .text_file {
+  background-color: #2c475d;
+}
+
+.image {
+  object-fit: cover;
+  height: 200px;
+  width: 200px;
+  border-radius: 6px;
+}
+
+.text_file {
+  height: 50px;
+  width: 200px;
+  cursor: pointer;
+  border-radius: 6px;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+.text_file a {
+  color: white;
+  text-decoration: none;
+}
+
+.chat_messages {
+  max-height: calc(100% - 140px);
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.message_content {
+  padding: 8px 8px 8px 8px;
+  margin: 8px 8px 8px 8px;
+  border-radius: 8px;
+  max-width: 90%;
+  overflow: hidden;
+  overflow-wrap: anywhere;
+}
+
+.message_text {
+  margin: 0;
+}
+
+.profile {
+  font-size: 48px;
+  color: #6c6c6c;
+}
+
+.chat_details {
+  width: 100%;
+  margin: 0 0 0 8px;
+  position: relative;
+}
+
+.chat_title {
+  margin: 0;
+  font-weight: 400;
+  color: #6c6c6c;
+}
+
+.last_message {
+  margin: 0;
+  color: #C2C2C2;
+  max-width: 50%;
+  overflow: hidden;
+}
+
+.topbar {
+  height: 60px;
+  border-bottom: 1px solid rgba(194, 194, 194, 0.3);
+}
+
+.bottombar {
+  height: 80px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  border-top: 1px solid rgba(194, 194, 194, 0.3);
+}
+
+.text_field {
+  border-radius: 50px;
+  outline: none;
+  border: 1px solid rgba(194, 194, 194, 0.6);
+  text-indent: 15px;
+  color: #6c6c6c;
+}
+.text_field::placeholder {
+  color: #C2C2C2;
+  font-family: "Roboto", sans-serif;
+}
+
+#menu {
+  display: none;
+  margin-left: 8px;
+}
+
+.login_page {
+  background-color: #2B4D6A;
+  height: 100vh;
+  overflow: hidden;
+  width: 100%;
+  margin: 0;
+}
+.login_page .center {
+  height: 100%;
+  align-items: center;
+}
+.login_page .login {
+  width: 1200px;
+  height: 700px;
+  background-color: white;
+  border-radius: 20px;
+  display: flex;
+  text-align: center;
+  overflow: hidden;
+}
+.login_page .login .switch_login {
+  background-color: #7C81F6;
+  width: 410px;
+  color: white;
+  border-radius: 20px 0 0 20px;
+  padding: 168px 0 0 0;
+  position: relative;
+  transition: width 1s ease;
+  z-index: 1;
+  order: 0;
+}
+.login_page .login .switch_login .watch {
+  margin-top: 36px;
+  width: 187px;
+  margin-left: auto;
+  margin-right: auto;
+  color: white;
+}
+.login_page .login .switch_login .watch .change_time:hover {
+  color: #2B4D6A;
+}
+.login_page .login .switch_button {
+  color: white;
+  border-radius: 50px;
+  height: 45px;
+  width: 150px;
+  background-color: transparent;
+  border: 1px solid white;
+  font-size: 12px;
+  position: absolute;
+  bottom: 168px;
+  left: calc(50% - 75px);
+  cursor: pointer;
+  transition: color, background-color 0.5s ease;
+}
+.login_page .login .switch_button:hover {
+  color: #7C81F6;
+  background-color: white;
+}
+.login_page .login #switch_sign_up_mobile {
+  color: #7C81F6;
+  border: 1px solid #7C81F6;
+  bottom: 60px;
+  display: none;
+}
+.login_page .login #switch_sign_up_mobile:hover {
+  color: white;
+  background-color: #7C81F6;
+}
+.login_page .login .credentials, .login_page .login .credentials_register {
+  color: #2B4D6A;
+  width: 790px;
+  padding: 72px 0 72px 0;
+  position: relative;
+  transition: width 1s ease;
+  z-index: 0;
+}
+.login_page .login .credentials h1, .login_page .login .credentials_register h1 {
+  white-space: nowrap;
+}
+.login_page .login .credentials .cred_form, .login_page .login .credentials_register .cred_form {
+  position: absolute;
+  left: calc(50% - 152px);
+  top: calc(50% - 80px);
+}
+.login_page .login .credentials .cred_form .toggle_visible, .login_page .login .credentials_register .cred_form .toggle_visible {
+  position: absolute;
+  right: 6px;
+  color: #2B4D6A;
+  cursor: pointer;
+}
+.login_page .login .credentials .cred_form input, .login_page .login .credentials_register .cred_form input {
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #6c6c6c;
+  margin-bottom: 80px;
+  width: 300px;
+  color: #2B4D6A;
+  padding-bottom: 10px;
+  font-size: 16px;
+}
+.login_page .login .credentials .cred_form input::placeholder, .login_page .login .credentials_register .cred_form input::placeholder {
+  font-size: 16px;
+  color: #6c6c6c;
+  font-family: "Roboto", sans-serif;
+}
+.login_page .login .credentials .submit_form, .login_page .login .credentials_register .submit_form {
+  color: white;
+  height: 45px;
+  width: 300px;
+  background-color: #5dd4ae;
+  border: none;
+  border-radius: 50px;
+  font-size: 12px;
+  position: absolute;
+  bottom: 72px;
+  left: calc(50% - 150px);
+  box-shadow: 0 4px 7px lightgrey;
+  cursor: pointer;
+  transition: box-shadow 0.5s ease;
+}
+.login_page .login .credentials .submit_form:hover, .login_page .login .credentials_register .submit_form:hover {
+  box-shadow: 0 7px 9px lightgrey;
+}
+.login_page .login .credentials_register {
+  visibility: hidden;
+  width: 0;
+}
+
+button {
+  outline: none;
+  font-family: "Roboto", sans-serif;
+}
+
+.no_transition {
+  transition: none !important;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: white;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #C2C2C2;
+  border-radius: 12px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #6c6c6c;
+}
+
+@media (max-width: 768px) {
+  .closed {
+    display: none;
+  }
+
+  .open {
+    display: block;
+    width: 100%;
+  }
+
+  #menu {
+    display: block;
+  }
+}
+@media (max-width: 600px) {
+  .switch_login {
+    display: none;
+  }
+
+  #submit_credentials, #submit_register {
+    bottom: 120px;
+  }
+
+  #switch_sign_up_mobile {
+    display: block !important;
+  }
+
+  #register-form {
+    top: calc(50% - 110px);
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
