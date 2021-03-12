@@ -2,7 +2,7 @@
 An instant messenger written in HTML, Sass, Javascript and PHP. The messenger supports end-to-end encryption for messenges and files.
 
 ## Table of contents
-* [General information](#general-info)
+* [General information](#general-information)
 * [Setup](#setup)
 * [Dependencies](#dependencies)
 * [Features](#features)
@@ -15,13 +15,14 @@ The content of a message and the data of files. Metadata is not being encrypted.
 ## Setup
 1. Create the database "messenger" on your server by importing database.sql.
 2. Install needed requirements 
-3. Exchange MySQL credentials in files
+3. Exchange MySQL credentials in `app/classes/Database.php`
 4. run `php WsServer.php` on your server
 
 ## Dependencies
 * PHP: 7.2.0
 * cboden/ratchet: 0.4.3
 * libsodium: 1.0.15
+* MySQL: 5.6.36
 
 ## Features
 * end-to-end encryption
