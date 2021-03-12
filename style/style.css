@@ -296,7 +296,7 @@ body {
   background-color: #7C81F6;
   width: 410px;
   color: white;
-  border-radius: 20px 0 0 20px;
+  border-radius: 20px;
   padding: 168px 0 0 0;
   position: relative;
   transition: width 1s ease;
@@ -352,6 +352,9 @@ body {
 .login_page .login .credentials h1, .login_page .login .credentials_register h1 {
   white-space: nowrap;
 }
+.login_page .login .credentials #register-form, .login_page .login .credentials_register #register-form {
+  top: calc(50% - 130px);
+}
 .login_page .login .credentials .cred_form, .login_page .login .credentials_register .cred_form {
   position: absolute;
   left: calc(50% - 152px);
@@ -362,6 +365,9 @@ body {
   right: 6px;
   color: #2B4D6A;
   cursor: pointer;
+}
+.login_page .login .credentials .cred_form #remember, .login_page .login .credentials_register .cred_form #remember {
+  width: auto;
 }
 .login_page .login .credentials .cred_form input, .login_page .login .credentials_register .cred_form input {
   outline: none;
@@ -455,7 +461,7 @@ button {
   }
 
   #register-form {
-    top: calc(50% - 110px);
+    top: calc(50% - 145px);
   }
 }
 

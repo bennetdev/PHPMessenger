@@ -5,7 +5,7 @@
         session_start();
     }
     if(isset($_SESSION["user_id"]) && isset($_POST["chat_id"])){
-        $database = new Database("localhost", "messenger", "root", "");
+        $database = new Database();
         $user_id = $_SESSION["user_id"];
         $user_chat_id = $database->get_user($user_id)["chat_id"];
         $chat_id = $_POST["chat_id"];

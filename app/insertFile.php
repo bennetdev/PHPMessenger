@@ -4,7 +4,7 @@ require_once "classes/Database.php";
 
 
 if(isset($_SESSION["user_id"]) && isset($_FILES["uploaded_file"])){
-    $db = new Database("localhost", "messenger", "root", "");
+    $db = new Database();
     $user_id = $_SESSION["user_id"];
     // read file and silence errors
     $handle=@fopen($_FILES["uploaded_file"]["tmp_name"], 'rb');

@@ -1,5 +1,6 @@
 <?php
 require_once "app/classes/Database.php";
+require_once "app/utils.php";
 session_start();
 
 // force login
@@ -8,7 +9,7 @@ if(!isset($_SESSION["user_id"])){
 }
 
 // get current user and associated chats
-$db = new Database("localhost", "messenger", "root", "");
+$db = new Database();
 $chats = $db->get_chats($_SESSION["user_id"]);
 $user = $db->get_user($_SESSION["user_id"]);
 

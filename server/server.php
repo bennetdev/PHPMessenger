@@ -25,7 +25,7 @@ class Chat implements MessageComponentInterface {
 
     public function __construct() {
         $this->clients = new \SplObjectStorage;
-        $this->db = new Database("localhost", "messenger", "root", "");
+        $this->db = new Database();
     }
 
     public function onOpen(ConnectionInterface $conn) {

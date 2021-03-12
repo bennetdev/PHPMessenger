@@ -240,7 +240,7 @@ body
       background-color: $blue_main
       width: 410px
       color: $light
-      border-radius: 20px 0 0 20px
+      border-radius: 20px
       padding: 168px 0 0 0
       position: relative
       transition: width 1s ease
@@ -288,6 +288,8 @@ body
       z-index: 0
       h1
         white-space: nowrap
+      #register-form
+        top: calc(50% - 130px)
       .cred_form
         position: absolute
         left: calc(50% - 152px)
@@ -297,6 +299,8 @@ body
           right: 6px
           color: $blue_sec
           cursor: pointer
+        #remember
+          width: auto
         input
           outline: none
           border: none
@@ -368,4 +372,4 @@ button
   #switch_sign_up_mobile
     display: block !important
   #register-form
-    top: calc(50% - 110px)
+    top: calc(50% - 145px)

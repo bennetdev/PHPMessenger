@@ -2,7 +2,7 @@
 session_start();
 require_once "classes/Database.php";
 if(isset($_SESSION["user_id"]) && isset($_POST["data"])){
-    $db = new Database("localhost", "messenger", "root", "");
+    $db = new Database();
     // if you want to encrypt with the public key of someone else
     if(isset($_POST["chat_id"])){
         // encrypt with public-key of partner

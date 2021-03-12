@@ -9,7 +9,7 @@ if(isset($_POST['username']) && isset($_POST["password"]) && isset($_POST["passw
     $password2 = $_POST['password2'];
 
     if(strlen($password) !== 0 || $password === $password2 || (strpos($password, " ") == false || strpos($username, " ") == false)) {
-        $db = new Database("localhost", "messenger", "root", "");
+        $db = new Database();
         $users = $db->get_user_by_username($username);
 
         // if username is not already taken

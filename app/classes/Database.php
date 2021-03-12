@@ -3,22 +3,14 @@
 
 class Database
 {
-    private $host, $database, $username, $password, $connection;
+    private $host = "localhost";
+    private $database = "messenger";
+    private $username = "root";
+    private $password = "";
+    private $connection;
     private $port = 3306;
-
-    /**
-     * database constructor.
-     * @param $host
-     * @param $database
-     * @param $username
-     * @param $password
-     */
-    public function __construct($host, $database, $username, $password)
+    public function __construct()
     {
-        $this->host = $host;
-        $this->database = $database;
-        $this->username = $username;
-        $this->password = $password;
         $this->connect();
     }
 
@@ -286,5 +278,36 @@ class Database
 
         return $query->rowCount() ? true : false;
     }
+    public function insert_auth_token($user_id, $selector, $hashed_key, $expires_datetime){
+        $statement = $this->connection->prepare("
+		        	INSERT INTO auth_tokens (user_id, selector, hashed_key, expires)
+		        	VALUES (:user_id, :selector, :hashed_key, :expires)
+	        ");
+        $result = $statement->execute([
+            'user_id' => $user_id,
+            "selector" => $selector,
+            "hashed_key" => $hashed_key,
+            "expires" => $expires_datetime->format("Y-m-d H:i:s")
+        ]);
+    }
 
+    public function check_cookie($selector, $key){
+        $today = new Datetime();
+
+        $query = $this->connection->prepare("
+        SELECT * FROM auth_tokens
+        WHERE selector = :selector and expires > :expires
+        ");
+        $query->execute([
+            "selector" => $selector,
+            "expires" => $today->format("Y-m-d H:i:s")
+        ]);
+        if($query->rowCount()){
+            $token = $query->fetchAll(\PDO::FETCH_ASSOC)[0];
+            return (password_verify($key, $token["hashed_key"]) ? $token : false);
+        }
+        else{
+            return false;
+        }
+    }
 }

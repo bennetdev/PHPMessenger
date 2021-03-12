@@ -103,7 +103,6 @@ async function upload_file(file, chat_id){
 }
 
 $(document).ready(function (){
-    console.log(conn);
 
     conn.onopen = function(e) {
         console.log("Connection established!");
@@ -118,7 +117,6 @@ $(document).ready(function (){
         var chat = $(".chat[data-id='" + data.from_id + "'")
         var writing_status = $("#writing_status");
 
-        console.log(data);
         if(data.type === "message"){
             var decrypted_text = await decrypt(data.text)
             if(current_chat_id !== undefined && (data.from_id == current_chat_id || data.to_id == current_chat_id)){
@@ -189,8 +187,10 @@ $(document).ready(function (){
 
     scroll_messages();
     $(".chats").on("click", ".chat", function (){
+        var notifications = $(this).find(".notifications")
         load_messages($(this).data("id"));
-        $(this).find(".notifications").css("visibility", "hidden");
+        notifications.css("visibility", "hidden");
+        notifications.html("0");
 
         $(".chat_wrapper").addClass("open");
         $(".chat_wrapper").removeClass("closed");

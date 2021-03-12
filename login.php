@@ -1,5 +1,17 @@
 <?php
+require_once "app/classes/Database.php";
+require_once "app/utils.php";
 session_start();
+
+// check if cookie exists -> get user_id to skip login
+$db = new Database();
+$user_id = get_userid_by_cookies($db);
+
+if($user_id !== false){
+    $_SESSION["user_id"] = $user_id;
+    header("Location: index.php");
+}
+
 
 // load response from register
 if(isset($_GET["response"])){
@@ -35,7 +47,9 @@ else{
             <form action="app/login.php" id="login-form" method="POST" class="cred_form">
                 <input type="text" placeholder="Username" name="username"><br>
                 <input type="password" placeholder="Password" name="password" class="password">
-                <span class="material-icons toggle_visible">visibility</span>
+                <span class="material-icons toggle_visible">visibility</span><br>
+                <input type="checkbox" name="remember" id="remember">
+                <label for="remember">Remember me</label>
             </form>
             <button type="submit" id="submit_credentials" class="submit_form">Login</button>
         </div>
