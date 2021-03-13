@@ -15,6 +15,19 @@ CREATE DATABASE /*!32312 IF NOT EXISTS*/`messenger` /*!40100 DEFAULT CHARACTER S
 
 USE `messenger`;
 
+/*Table structure for table `auth_tokens` */
+
+CREATE TABLE `auth_tokens` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` int(10) unsigned NOT NULL,
+  `selector` text,
+  `hashed_key` text,
+  `expires` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_user_id` (`user_id`),
+  CONSTRAINT `fk_user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+
 /*Table structure for table `chats` */
 
 CREATE TABLE `chats` (
@@ -40,7 +53,7 @@ CREATE TABLE `files` (
   PRIMARY KEY (`id`),
   KEY `fk_by_id` (`owner_id`),
   CONSTRAINT `fk_by_id` FOREIGN KEY (`owner_id`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
 
 /*Table structure for table `messages` */
 
@@ -59,7 +72,7 @@ CREATE TABLE `messages` (
   CONSTRAINT `fk_chat_id` FOREIGN KEY (`chat_id`) REFERENCES `chats` (`id`),
   CONSTRAINT `fk_file_id` FOREIGN KEY (`file_id`) REFERENCES `files` (`id`),
   CONSTRAINT `fk_from_id` FOREIGN KEY (`from_id`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=267 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=278 DEFAULT CHARSET=latin1;
 
 /*Table structure for table `users` */
 
